@@ -10,6 +10,7 @@
 ## installing dependencies
 
 pip install "fastapi[standard]"
+pip install pytest
 
 ## running the project
 
