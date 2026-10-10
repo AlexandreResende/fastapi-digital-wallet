@@ -22,3 +22,14 @@ def test_admin_get_user_by_id_not_found():
 
     assert response.status_code == status.HTTP_404_NOT_FOUND
     assert response.json() == {'detail': 'User not found'}
+
+def test_admin_update_user_by_id(user):
+    response = client.put('/admin/users/1', json={ 'username': 'Testonildo' })
+
+    assert response.status_code == status.HTTP_200_OK
+    assert response.json() == { 'message': 'User updated successfully' }
+
+def test_admin_update_user_by_id_with_invalid_data(user):
+    response = client.put('/admin/users/1', json={ 'username': 'T' })
+
+    assert response.status_code == status.HTTP_422_UNPROCESSABLE_CONTENT
