@@ -20,3 +20,9 @@ class UserRepository:
         self.db.commit()
 
         return True
+
+    def delete_user_by_id(self, user_id: int):
+        self.db.query(Users).filter(Users.id == user_id).delete()
+        self.db.commit()
+
+        return True

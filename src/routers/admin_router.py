@@ -21,4 +21,10 @@ async def admin_get_user(repository: users_repository, user_id: int):
 async def admin_update_user(repository: users_repository, user_id: int, request: AdminUpdateUser):
     repository.update_user_by_id(user_id, request.model_dump(exclude_unset=True))
 
-    return {'message': 'User updated successfully'}
+    return { 'message': 'User updated successfully' }
+
+@router.delete('/users/{user_id}', status_code=status.HTTP_204_NO_CONTENT)
+def admin_delete_user(repository: users_repository, user_id: int):
+    repository.delete_user_by_id(user_id)
+
+    return {}
