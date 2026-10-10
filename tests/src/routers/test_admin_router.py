@@ -33,3 +33,8 @@ def test_admin_update_user_by_id_with_invalid_data(user):
     response = client.put('/admin/users/1', json={ 'username': 'T' })
 
     assert response.status_code == status.HTTP_422_UNPROCESSABLE_CONTENT
+
+def test_admin_delete_user_by_id(user):
+    response = client.delete('/admin/users/1')
+
+    assert response.status_code == status.HTTP_204_NO_CONTENT
