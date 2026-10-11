@@ -1,5 +1,7 @@
 .idea/
 digital-wallet/
+./testdb.db
+./digital_wallet.db
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
