@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, status
 
-from src.container import users_repository
+from src.containers.repositories import users_repository
 from src.requests.admin_update_user import AdminUpdateUser
 
 router = APIRouter(

@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 
-from src.container import get_user_by_id_command
+from src.containers.commands import get_user_by_id_command
 
 router = APIRouter(
     prefix='/users',
