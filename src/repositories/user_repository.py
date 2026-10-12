@@ -15,6 +15,12 @@ class UserRepository:
 
         return UserEntity.from_database(**user.to_json())
 
+    def create_user(self, user: UserEntity):
+        self.db.add(user.to_database())
+        self.db.commit()
+
+        return True
+
     def update_user_by_id(self, user_id: int, updated_data: dict):
         self.db.query(Users).filter(Users.id == user_id).update(updated_data)
         self.db.commit()

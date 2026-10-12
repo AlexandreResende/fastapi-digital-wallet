@@ -1,8 +1,7 @@
 from pytest import fixture
-from sqlalchemy import text
 
 from src.models import Users
-from tests.utils.database import TestingSessionLocal, engine
+from tests.utils.database import TestingSessionLocal
 
 @fixture
 def user():
@@ -20,8 +19,6 @@ def user():
     db = TestingSessionLocal()
     db.add(user)
     db.commit()
+    db.close()
 
     yield user
-    with engine.connect() as connection:
-        connection.execute(text('DELETE FROM users;'))
-        connection.commit()

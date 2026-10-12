@@ -12,7 +12,7 @@ class UserEntity:
     is_active: bool
     role: str
 
-    def __init__(self, id: int, username: str, email: str, first_name: str, last_name: str, password: str, is_active: bool, role: str):
+    def __init__(self, username: str, email: str, first_name: str, last_name: str, password: str, role: str, is_active: bool = True, id: Optional[int] = None):
         self.id = id
         self.username = username
         self.email = email
@@ -36,6 +36,6 @@ class UserEntity:
 
     @staticmethod
     def from_database(id: int, username: str, email: str, first_name: str, last_name: str, password: str, is_active: bool, role: str):
-        user = UserEntity(id, username, email, first_name, last_name, password, is_active, role)
+        user = UserEntity(username, email, first_name, last_name, password, role, is_active, id)
 
         return user

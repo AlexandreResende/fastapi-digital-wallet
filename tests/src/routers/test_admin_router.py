@@ -1,13 +1,7 @@
 from fastapi import status
 
-from main import app
-from src.database import get_db
-
-from tests.utils.database import override_get_db
 from tests.utils.client import client
 from tests.utils.fixtures.repositories.users_repository.user_repository_fixture import user
-
-app.dependency_overrides[get_db] = override_get_db
 
 def test_admin_get_user_by_id(user):
     response = client.get('/admin/users/1')

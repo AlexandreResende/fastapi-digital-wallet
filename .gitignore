@@ -1,7 +1,7 @@
 .idea/
 digital-wallet/
-./testdb.db
-./digital_wallet.db
+testdb.db
+digital_wallet.db
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -223,3 +223,4 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+

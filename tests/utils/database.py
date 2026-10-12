@@ -1,10 +1,8 @@
-from sqlalchemy import create_engine, text
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.pool import StaticPool
 
-from src.database import Base
-
-SQLALCHEMY_DATABASE_URL = 'sqlite:///./testdb.db'
+SQLALCHEMY_DATABASE_URL = 'sqlite://'
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL,
@@ -13,8 +11,6 @@ engine = create_engine(
 )
 
 TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
-Base.metadata.create_all(bind=engine)
 
 def override_get_db():
     db = TestingSessionLocal()
